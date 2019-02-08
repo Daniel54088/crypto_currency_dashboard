@@ -1,8 +1,14 @@
 import React from "react";
 import Header from './component/header';
 import SideNav from './SideNav/SideNav';
+import { Route } from 'react-router-dom'
 import './styles/app.scss';
 import './vendors/material-design-iconic-font/css/material-design-iconic-font.css';
+
+//component
+import Home from './pages/Home/Home'
+import Login from './component/Login'
+
 
  class App extends React.Component {
     constructor(props) {
@@ -10,17 +16,20 @@ import './vendors/material-design-iconic-font/css/material-design-iconic-font.cs
         this.state = {
 
         }
-
     }
 
+
     render() {
+
         return (
             <div>
-            <SideNav/>
-             <Header/>
-               <div id="component" key={this.props.location.key}>
-                {this.props.children}
-               </div>
+              <SideNav/>
+              <Header/>
+              <div className="content">
+                <Route exact path="/" component={Home} />
+                <Route exact path="/login" component={Login} />
+			  </div>
+
             </div>
         )
     }
