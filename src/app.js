@@ -4,7 +4,8 @@ import SideNav from './SideNav/SideNav';
 import { Route } from 'react-router-dom'
 import './styles/app.scss';
 import './vendors/material-design-iconic-font/css/material-design-iconic-font.css';
-
+import './styles/app-rtl.scss';
+import './styles/bootstrap.scss'
 //component
 import Home from './pages/Home/Home'
 import Login from './component/Login'
@@ -22,13 +23,23 @@ import Login from './component/Login'
     render() {
 
         return (
-            <div>
+            <div className="app-container fixed-drawer">
+
               <SideNav/>
-              <Header/>
-              <div className="content">
-                <Route exact path="/" component={Home} />
-                <Route exact path="/login" component={Login} />
-			  </div>
+
+              <div className="app-main-container">
+                <div className="app-header">
+                <Header/>
+                </div>
+
+                <main className="app-main-content-wrapper">
+                    <div className="app-main-content">
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/login" component={Login} />
+			        </div>   
+                </main>
+
+              </div>
 
             </div>
         )
