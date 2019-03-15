@@ -95,7 +95,7 @@ class Header extends React.Component {
                   
 
                   <NavLink className="app-logo mr-2 d-none d-sm-block" to="/">
-                      <img src="http://via.placeholder.com/177x65" alt="Jambo" title="Jambo"/>
+                      <img src={require("../assets/logo_white.png")} alt="Loweik" title="Loweik"/>
                   </NavLink>
 
                 <SearchBox styleName="d-none d-lg-block" placeholder=""

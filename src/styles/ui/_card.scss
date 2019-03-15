@@ -32,7 +32,7 @@
     position: relative;
     width: 100%;
     min-height: 100%;
-    @include background('http://via.placeholder.com/1920x1072', center center);
+    @include background('https://via.placeholder.com/1920x1072', center center);
   }
   & .pi-content {
     padding: 70px 40px 24px !important;
@@ -64,7 +64,7 @@
   &:before {
     display: block;
     content: "";
-    background-color: rgba($black, 0.3);
+    background-color: rgba($black, 0.6);
     position: absolute;
     top: 0;
     bottom: 0;
@@ -83,20 +83,21 @@
     margin-top: 6px;
   }
 
+  &.p-0 > .jr-card-header:first-child,
   &.p-0 > .jr-card-body:first-child {
     margin-top: 0;
   }
 
   & .jr-card-thumb {
-    margin: -18px -24px 0;
-
-    & .card-img {
-      @include border-radius(2px 2px 0 0);
-    }
+    margin: (-$jr-card-padding) (-$jr-card-padding) 0;
   }
 
   @media screen and (max-width: 575px) {
     margin-bottom: 18px;
+  }
+
+  &-full {
+    padding: 0;
   }
 }
 
@@ -104,11 +105,17 @@
   margin-bottom: $jr-card-margin;
 
   .card-heading {
-    margin-bottom: ($jr-card-margin / 6);
+    margin-bottom: ($jr-card-margin / 12);
+    font-size: 17px;
+  }
+
+  &:first-child {
+    margin-top: -4px;
   }
 
   & .badge {
     padding: 2px 5px;
+    margin-bottom: 0;
     &:last-child {
       margin-left: 10px;
     }
@@ -116,6 +123,13 @@
 
   @media screen and (max-width: 575px) {
     margin-bottom: 18px;
+  }
+
+  & .icon-btn:last-child {
+    margin-top: -12px;
+    margin-right: -12px;
+    -ms-flex-align: start;
+    align-self: flex-start;
   }
 }
 
@@ -139,6 +153,7 @@
 
 .card {
   margin-bottom: $jr-card-margin;
+  border: 0 none;
   @include border-radius($border-radius);
 
   @media screen and (max-width: 575px) {
@@ -148,15 +163,47 @@
 
 .card-header {
   font-size: 16px;
+
+  .jr-card-intra & {
+    border-bottom: 0 none;
+    background-color: rgba($black, 0.02);
+  }
+
+  & .badge {
+    padding: 2px 5px;
+    margin-bottom: 0;
+    &:last-child {
+      margin-left: 10px;
+    }
+  }
 }
 
 .card-title {
   font-size: $h3-font-size;
   text-transform: capitalize;
 
+  .jr-card-metrics & {
+    font-size: $h6-font-size;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
+
+  .jr-card-widget & {
+    font-size: $h6-font-size;
+    text-transform: uppercase;
+  }
+
+  @media screen and (max-width: 1366px) {
+    font-size: $h4-font-size;
+  }
+
   @media screen and (max-width: 991px) {
     margin-bottom: 10px;
   }
+}
+
+.jr-card-intra {
+  border: 0 none;
 }
 
 .product-item-vertical .card-footer {
@@ -180,7 +227,7 @@
 
 .jr-card-social {
   font-size: 22px;
-  padding-top: 20px;
+  padding-top: 15px;
 }
 
 .social-link {
@@ -207,6 +254,10 @@
 
   .jr-card-social & {
     margin-bottom: 0;
+    @include justify-content(space-between);
+  }
+
+  .jr-card-social-around & {
     @include justify-content(space-around);
   }
 }
@@ -233,6 +284,9 @@
 .img-overlay-card {
   @include border-radius($border-radius);
   margin-bottom: $jr-card-margin;
+  & .center-crop-img {
+    min-height: 110px;
+  }
 
   @media screen and (max-width: 1199px) {
     & .center-crop-img {
@@ -242,5 +296,105 @@
 
   @media screen and (max-width: 575px) {
     margin-bottom: 18px;
+  }
+}
+
+.jr-card-overview {
+  margin-bottom: $jr-card-margin;
+  background-color: $white;
+
+  @include box-shadow($jr-card-shadow);
+  position: relative;
+  @include border-radius($border-radius-lg);
+  padding: $jr-card-padding;
+
+  & .jr-card-title {
+    margin-bottom: 20px;
+  }
+}
+
+.card-img {
+  border-radius: $border-radius;
+}
+
+.card-img-top {
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+}
+
+.card-img-bottom {
+  border-bottom-right-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
+}
+
+.card-header:first-child {
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+}
+
+.card-footer:last-child {
+  border-bottom-right-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
+}
+
+.jr-full-card {
+  padding: 0;
+
+  & .jr-card-header {
+    padding: 26px $jr-card-padding;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  & .table-responsive-material {
+    padding-bottom: $jr-card-margin;
+  }
+}
+
+.jr-weather-card {
+  padding: 0;
+
+  & .jr-card-header {
+    padding: 40px 20px;
+    margin-bottom: 0;
+    text-align: center;
+    @include background('https://via.placeholder.com/370x250', center center);
+    position: relative;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    overflow: hidden;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background-color: rgba($black, 0.5);
+    }
+
+    & * {
+      position: relative;
+      z-index: 2;
+    }
+
+    & .card-heading {
+      font-size: $h1-font-size;
+      margin-bottom: 5px;
+
+      @media screen and (max-width: 1366px) {
+        font-size: ($h2-font-size + 2);
+      }
+    }
+
+    & .sub-heading {
+      color: $white;
+    }
+  }
+
+  & .jr-card-body {
+    padding: $jr-card-padding;
   }
 }

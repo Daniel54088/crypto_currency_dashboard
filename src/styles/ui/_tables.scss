@@ -13,13 +13,15 @@
 }
 
 .spacer {
-  @include flex(1,1,100%);
+  @include flex(1, 1, 100%);
 }
+
 .actions {
   color: map_get($red, base);
 }
+
 .title {
-  @include flex(0,0,auto);
+  @include flex(0, 0, auto);
 }
 
 .table-hover tbody tr:hover {
@@ -54,15 +56,15 @@
 
 .d-flex-stretch {
   @include align-items(stretch);
-  display:  -webkit-flex;
-  display:  -webkit-box;
-  display:  -moz-flex;
-  display:  -moz-box;
-  display:  -ms-flexbox;
-  display:  flex;
-  -webkit-flex-wrap:  wrap;
-  -ms-flex-wrap:  wrap;
-  flex-wrap:  wrap;
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -moz-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .default-table {
@@ -71,8 +73,39 @@
     font-weight: 400;
     font-size: 16px;
   }
+
+  & thead.table-head-sm th {
+    font-size: 13px;
+  }
   & td {
     vertical-align: middle;
+  }
+}
+
+.project-list-table {
+  & thead th {
+    font-weight: 500;
+    font-size: 13px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-bottom-width: 1px;
+  }
+
+  & thead th,
+  & td {
+    padding: 7px 6px;
+    vertical-align: middle;
+
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  & tr:first-child td {
+    padding-top: 15px;
   }
 }
 
@@ -135,5 +168,42 @@
   .table-responsive-material > .table-bordered > tbody > tr:last-child > td,
   .table-responsive-material > .table-bordered > tfoot > tr:last-child > td {
     border-bottom: 0;
+  }
+}
+
+.table-nowrap {
+  & th,
+  & td {
+    white-space: nowrap;
+  }
+}
+
+.table-fs-13 {
+  font-size: ($font-size-base - 1);
+}
+
+.full-table-border {
+  & td {
+    border-top: 0 none;
+  }
+
+  & tr:not(:last-child) td {
+    border-bottom: 1px solid $gray-400;
+  }
+}
+
+.full-table {
+  & td:first-child {
+    padding-left: $jr-card-margin;
+  }
+
+  & td:last-child {
+    padding-right: 24px;
+  }
+}
+
+.full-table-last-sm {
+  & td:last-child {
+    padding-right: ($jr-card-padding - 14);
   }
 }

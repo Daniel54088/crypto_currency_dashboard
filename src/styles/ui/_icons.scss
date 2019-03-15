@@ -4,6 +4,20 @@
   display: inline-block;
   @extend %size-30;
   text-align: center;
+
+  &-btn .zmdi {
+    @include size(20px);
+    @include display-flex(inline-flex, row, nowrap);
+    @include align-items(center);
+    @include justify-content(center);
+  }
+
+  &-btn-sm .zmdi {
+    @include size(16px);
+    @include display-flex(inline-flex, row, nowrap);
+    @include align-items(center);
+    @include justify-content(center);
+  }
 }
 
 .icons-wrapper {

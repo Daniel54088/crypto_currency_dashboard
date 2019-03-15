@@ -6,35 +6,36 @@ h1, h2, h3, h4, h5, h6,
   color: $headings-color;
 }
 
-h1,.h1 {
-  font-size: $h1-font-size;
+[class*="text-"] h1, [class*="text-"] .h1 {
+  color: inherit;
 }
 
-h2,.h2 {
-  font-size: $h2-font-size;
+[class*="text-"] h2, [class*="text-"] .h2 {
+  color: inherit;
 }
 
-h3,.h3 {
-  font-size: $h3-font-size;
+[class*="text-"] h3, [class*="text-"] .h3 {
+  color: inherit;
 }
 
-h4,.h4 {
-  font-size: $h4-font-size;
+[class*="text-"] h4, [class*="text-"] .h4 {
+  color: inherit;
 }
 
-h5,.h5 {
-  font-size: $h5-font-size;
+[class*="text-"] h5, [class*="text-"] .h5 {
+  color: inherit;
 }
 
-h6,.h6 {
-  font-size: $h6-font-size;
+[class*="text-"] h6, [class*="text-"] .h6 {
+  color: inherit;
 }
 
 .text-strikethrough {
   text-decoration: line-through !important;
 }
 
-@media screen and (max-width: 991px) {
+/*
+@media screen and (max-width: 1366px) {
   h1, .h1 {
     font-size: $h2-font-size;
   }
@@ -46,7 +47,15 @@ h6,.h6 {
   h3, .h3 {
     font-size: $h4-font-size;
   }
-}
+
+  h4, .h4 {
+    font-size: $h5-font-size;
+  }
+
+  h5, .h5 {
+    font-size: $h6-font-size;
+  }
+}*/
 
 .desc-list {
   margin-bottom: 0;
@@ -57,7 +66,7 @@ h6,.h6 {
     margin-right: -$jr-card-margin;
 
     &:last-child {
-      border-bottom:0 none;
+      border-bottom: 0 none;
     }
 
     & .card-title {
@@ -74,5 +83,135 @@ h6,.h6 {
         background-color: $gray-300;
       }
     }
+  }
+}
+
+// Font Weight class
+.jr-font-weight-thin {
+  font-weight: $font-weight-thin;
+}
+
+.jr-font-weight-light {
+  font-weight: $font-weight-light;
+}
+
+.jr-font-weight-normal {
+  font-weight: $font-weight-normal;
+}
+
+.jr-font-weight-medium {
+  font-weight: $font-weight-medium;
+}
+
+.jr-font-weight-bold {
+  font-weight: $font-weight-bold;
+}
+
+.jr-font-weight-black {
+  font-weight: $font-weight-black;
+}
+
+/*Font size Classes*/
+/*8px*/
+.jr-fs-xxs {
+  font-size: ($font-size-sm - 4) !important;
+}
+
+/*10px*/
+.jr-fs-xs {
+  font-size: ($font-size-sm - 2) !important;
+}
+
+/*11px*/
+.jr-fs-11 {
+  font-size: ($font-size-sm - 1) !important;
+}
+
+/*12px*/
+.jr-fs-sm {
+  font-size: $font-size-sm !important;
+}
+
+/*13px*/
+.jr-fs-13 {
+  font-size: ($font-size-base - 1) !important;
+}
+
+/*14px*/
+.jr-fs-md {
+  font-size: $font-size-base !important;
+  line-height: 1;
+}
+
+/*15px*/
+.jr-fs-15 {
+  font-size: ($font-size-base + 1) !important;
+}
+
+/*16px*/
+.jr-fs-lg {
+  font-size: ($font-size-lg - 2) !important;
+  line-height: 1;
+}
+
+/*20px*/
+.jr-fs-xl {
+  font-size: ($font-size-lg + 2) !important;
+  line-height: 1;
+}
+
+/*24px*/
+.jr-fs-xxl {
+  font-size: ($font-size-lg + 6) !important;
+  line-height: 1;
+
+  @media screen and (max-width: 1199px) {
+    font-size: ($font-size-lg + 2) !important;
+  }
+}
+
+/*28px*/
+.jr-fs-2xl {
+  font-size: (2*$font-size-base) !important;
+  line-height: 1;
+
+  @media screen and (max-width: 1199px) {
+    font-size: (2*$font-size-base - 8) !important;
+  }
+}
+
+/*30px*/
+.jr-fs-xxxl {
+  font-size: (2*$font-size-lg - 6px) !important;
+  line-height: 1;
+
+  @media screen and (max-width: 1199px) {
+    font-size: (2*$font-size-lg - 8px) !important;
+  }
+
+  @media screen and (max-width: 991px) {
+    font-size: (2*$font-size-lg - 10px) !important;
+  }
+}
+
+/*40px*/
+.jr-fs-xlxl {
+  font-size: (2*$font-size-lg + 4px) !important;
+  line-height: 1;
+
+  @media screen and (max-width: 1199px) {
+    font-size: (2*$font-size-lg - 4px) !important;
+  }
+
+  @media screen and (max-width: 991px) {
+    font-size: (2*$font-size-lg - 8px) !important;
+  }
+}
+
+.jr-fs-cp {
+
+  @media screen and (min-width: 1368px) {
+    font-size: ($font-size-lg - 2) !important;
+    line-height: 1;
   }
 }

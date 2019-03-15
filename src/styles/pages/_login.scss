@@ -114,6 +114,7 @@
     border: solid 1px $app-primary;
     @include border-radius(50%);
     color: $app-primary;
+    padding: 0;
 
     &:hover,
     &:focus {

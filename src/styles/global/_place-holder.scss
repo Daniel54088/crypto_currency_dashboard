@@ -3,8 +3,8 @@
   .menu-icon {
     position: relative;
     width: 70%;
-    height: 1px;
-    min-height: 1px;
+    height: 2px;
+    min-height: 2px;
     color: inherit;
     background-color: $white;
     display: block;
@@ -17,8 +17,8 @@
       color: inherit;
       background-color: inherit;
       left: 0;
-      height: 1px;
-      min-height: 1px;
+      height: 2px;
+      min-height: 2px;
       content: "";
       @include transition(all 0.4s ease);
     }
@@ -56,16 +56,34 @@
   line-height: $size-60;
 }
 
+%size-70 {
+  height: $size-70 !important;
+  width: $size-70 !important;
+  line-height: $size-70;
+}
+
 %size-80 {
   height: $size-80 !important;
   width: $size-80 !important;
   line-height: $size-80;
 }
 
+%size-90 {
+  height: $size-90 !important;
+  width: $size-90 !important;
+  line-height: $size-90;
+}
+
 %size-100 {
   height: $size-100 !important;
   width: $size-100 !important;
   line-height: $size-100;
+}
+
+%size-36 {
+  height: ($size-30 + 6) !important;
+  width: ($size-30 + 6) !important;
+  line-height: ($size-30 + 6);
 }
 
 %size-30 {
@@ -80,6 +98,17 @@
   line-height: $size-20;
 }
 
+%size-10 {
+  height: $size-10 !important;
+  width: $size-10 !important;
+  line-height: $size-10;
+}
+
+%size-8 {
+  height: ($size-10 - 2) !important;
+  width: ($size-10 - 2) !important;
+  line-height: ($size-10 - 2);
+}
 
 %size-40 {
   height: $size-40 !important;
@@ -104,7 +133,7 @@
   @include box-shadow($jr-card-shadow);
   margin-bottom: $jr-card-margin;
   background-color: $white;
-  @include border-radius($border-radius-sm);
+  @include border-radius($border-radius);
   position: relative;
 }
 

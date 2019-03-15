@@ -59,15 +59,38 @@
   }
 
   & .media {
-    margin-bottom: 10px;
+    margin-bottom: 18px;
+
+    @media screen and (max-width: 1199px) {
+      margin-bottom: 10px;
+    }
   }
 }
 
 .temp-section {
+  padding-top: 40px;
+  @include display-flex(flex, row, wrap);
+  @include justify-content(center);
 
   .temp-point,
   .detail-icon {
-    font-size: 54px;
+    font-size: 45px;
+
+    @media screen and (max-width: 991px) {
+      font-size: 35px;
+    }
+
+    @media screen and (max-width: 575px) {
+      font-size: 30px;
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    padding-top: 25px;
+  }
+
+  @media screen and (max-width: 575px) {
+    padding-top: 15px;
   }
 }
 
@@ -92,6 +115,7 @@
 
 .thumbnail-list {
   margin-bottom: 0;
+
   & .thumbnail-item {
     padding: 0 2.5px;
     display: inline-block;
@@ -104,6 +128,10 @@
 
     @media screen and (max-width: 575px) {
       width: 33.333%;
+    }
+
+    & img {
+      max-width: 100%;
     }
   }
 }
@@ -118,6 +146,10 @@
 .chart-f30 {
   font-size: 30px;
 
+  @media screen and (max-width: 1366px) {
+    font-size: 24px;
+  }
+
   @media screen and (max-width: 1099px) {
     font-size: 20px;
   }
@@ -125,6 +157,10 @@
 
 .chart-f20 {
   font-size: 20px;
+
+  @media screen and (max-width: 1099px) {
+    font-size: 18px;
+  }
 
   @media screen and (max-width: 1099px) {
     font-size: 16px;
@@ -153,6 +189,7 @@
 .tab-notifications {
   margin-left: -$jr-card-margin;
   margin-right: -$jr-card-margin;
+  margin-top: -10px;
   border-bottom: 1px solid $gray-500;
 
   @media screen and (max-width: 567px) {
@@ -182,45 +219,37 @@
 
 /*Intranet Dashboard Styles*/
 .net-chart {
-  padding-left: 0;
-  padding-right: 8px;
+  padding-left: 80px;
+  padding-right: 15px;
   min-height: 100px;
+  position: relative;
+  overflow: hidden;
   @include display-flex();
   @include align-items(center);
 
   & .jr-card-thumb {
-    margin: 0 20px 0 0;
-    width: 65px;
-    @include transition(all 0.2s ease 0.1s);
+    margin: 0;
+    width: $size-50;
+    height: $size-50;
+    color: $white;
+    font-size: 20px;
+    @include border-radius($border-radius-circle);
+    @include display-flex(flex, column, nowrap);
+    @include justify-content(center);
+    @include align-items(center);
+    @include box-shadow(0 6px 20px 0 rgba($gray-900, 0.19), 0 8px 17px 0 rgba($gray-900, 0.20));
+    @include transition(all 100ms ease);
+    position: absolute;
+    left: 15px;
   }
 
   &:hover .jr-card-thumb {
-    margin-right: 5px;
-    width: $size-80;
-  }
-
-  & .jr-card-thumb img {
-    @include border-radius(50%);
-    width: $size-50;
-    height: $size-50;
-    @include transition(all 0.2s ease 0.1s);
-    overflow: hidden;
-    margin-left: 15px;
-  }
-
-  &:hover .jr-card-thumb img {
-    width: $size-80;
-    height: $size-100;
+    width: 70px;
+    height: 100%;
+    font-size: 30px;
     @include border-radius(0);
-    margin: -18px 15px -18px 0;
-  }
-
-  & .jr-card-body {
-    width: calc(100% - 95px);
-  }
-
-  &:hover .jr-card-body {
-    width: calc(100% - 95px);
+    position: absolute;
+    left: 0;
   }
 }
 
@@ -233,13 +262,27 @@
 .net-chart-hr {
   @include display-flex();
   @include align-items(center);
-  min-height: $size-120;
-  padding-right: 8px;
+  min-height: ($size-120 - 2);
   overflow: hidden;
+  padding: 0;
 
   & .jr-card-thumb {
-    margin: -30px 12px -30px -24px;
+    margin: 0;
     min-width: $size-100;
+    align-self: stretch;
+    @include border-radius(0 $border-radius-circle $border-radius-circle 0);
+
+    &-img {
+      @include display-flex(flex, row, row);
+      @include align-items(center);
+      @include justify-content(center);
+      height: 100%;
+
+      & img {
+        @include border-radius(50%);
+        width: ($size-60 + 5);
+      }
+    }
   }
 
   & .grid-thumb-equal {
@@ -248,11 +291,46 @@
 
   & .jr-card-body {
     width: calc(100% - #{$size-100});
+    padding: 12px;
+  }
+}
+
+.user-detail-card {
+  position: relative;
+  @include display-flex();
+  overflow: hidden;
+  padding: 0;
+  min-height: 110px;
+
+  & .user-img {
+    display: inline-block;
+    @include size(62px);
+    @include box-shadow($avatar-shadow);
+    @include border-radius($border-radius-circle);
+  }
+
+  & .user-img-container {
+    content: '';
+    @include display-flex(flex, row, nowrap);
+    @include justify-content(flex-end);
+    @include align-items(center);
+    @include size(150px);
+    @include border-radius($border-radius-circle);
+    padding: 16px;
+    background-color: map_get($green, base);
+    position: absolute;
+    top: 50%;
+    left: -52px;
+    @include translateY(-50%);
+  }
+
+  & .jr-card-body {
+    padding: 20px 10px 20px 110px;
   }
 }
 
 .user-profile {
-  padding: 10px 0;
+  padding: 12px 0;
 }
 
 .mh-120 {
@@ -262,18 +340,59 @@
 .jr-card-header-top {
   @include display-flex();
   @include align-items(center);
-  margin-right: -16px;
+  margin-left: -12px;
+  margin-right: -12px;
 }
 
 .jr-card-header-color {
-  padding: 10px 20px 20px;
-  margin: -18px -24px 25px;
+  padding: 16px $jr-card-padding $jr-card-padding;
+  margin: (-$jr-card-padding) (-$jr-card-padding) 30px;
+  @include border-radius($border-radius $border-radius 0 0);
+  position: relative;
+
+  & .jr-badge-up {
+    @include display-flex(flex, row, nowrap);
+    @include align-items(center);
+    @include justify-content(center);
+    @include size(45px !important);
+    padding: 5px;
+    font-size: ($font-size-lg + 4);
+    color: $white;
+    @include border-radius($border-radius-circle);
+    position: absolute;
+    right: $size-20;
+    @include box-shadow($avatar-shadow);
+    bottom: -22px;
+    z-index: 1;
+
+    & .zmdi-mail-send {
+      padding-left: 4px;
+    }
+
+    @media screen and (max-width: 1366px) {
+      @include size(40px);
+      font-size: ($font-size-lg + 2);
+      bottom: -20px;
+    }
+  }
+}
+
+.markt-table {
+  @media screen and (max-width: 1366px) {
+    .user-detail .user-description {
+      font-size: $font-size-sm;
+    }
+  }
 }
 
 .todo-cell-group {
+  margin-top: -6px;
+
   & .todo-cell {
+    margin-left: -5px;
+
     &:not(:last-child) {
-      margin-bottom: 8px;
+      margin-bottom: 4px;
     }
   }
 }
@@ -281,28 +400,34 @@
 .social-list-line {
   position: relative;
 
-  &:not(:last-child):before {
-    border-left: solid 1px $gray-500;
-    content: "";
-    left: 20px;
-    position: absolute;
-    top: 5px;
-    bottom: 0;
-    width: 1px;
-    z-index: 1;
+  &:not(:last-child) {
+    & .media-body {
+      margin-bottom: 24px;
+    }
+
+    &:before {
+      border-left: solid 1px $gray-500;
+      content: "";
+      left: 20px;
+      position: absolute;
+      top: 5px;
+      bottom: 0;
+      width: 1px;
+      z-index: 1;
+    }
   }
 }
 
 .list-line-item {
   position: relative;
-  padding-left: 40px;
+  padding-left: 30px;
 
   &:not(:last-child):before {
     border-left: solid 1px $gray-500;
     content: "";
-    left: 20px;
+    left: 15px;
     position: absolute;
-    top: -25px;
+    top: -30px;
     bottom: -25px;
     width: 1px;
     z-index: 1;
@@ -311,11 +436,104 @@
 
 .list-line-badge {
   position: absolute;
-  left: 16px;
+  left: 11px;
   top: 15px;
   z-index: 2;
   @include border-radius(50%);
   height: 10px;
   width: 10px;
   background-color: $gray-500;
+}
+
+.jr-revenue-chart {
+  & .recharts-default-legend {
+    text-align: left !important;
+    margin-bottom: 20px !important;
+  }
+}
+
+.user-profile-border {
+  padding-left: $jr-card-margin;
+  padding-right: $jr-card-margin;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $gray-200;
+  }
+}
+
+.table-userdetail-mmin,
+.daily-feed-body {
+  margin-top: -15px;
+}
+
+.daily-feed-body {
+  & .user-profile {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  & + .daily-feed-footer {
+    border-top: 1px solid $gray-200;
+    padding: 12px $jr-card-margin;
+  }
+}
+
+.jr-comments {
+  & .media-list {
+    padding-left: $jr-card-margin;
+    padding-right: $jr-card-margin;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+
+    &:hover {
+      background-color: lighten($app-primary, 45%);
+    }
+  }
+}
+
+.team-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  @include display-flex(flex, row, nowrap);
+
+  & li:not(:first-child) {
+    margin-left: -6px;
+  }
+
+  & .user-avatar {
+    margin-right: 0;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    @include transition($transition-base);
+
+    &:not([class*="sieze-"]) {
+      @include size(25px !important);
+    }
+
+    &:hover,
+    &:focus {
+      z-index: 2;
+      -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      transform: scale(1.2);
+    }
+  }
+}
+
+.chart-user-statistics {
+  margin: -128px -30px 30px;
+  padding: 128px 0 0;
+  @include border-radius(0);
+  & .jr-card-header {
+    padding: 30px 30px 0;
+    margin-bottom: 10px;
+  }
+
+  @media screen and (max-width: 575px) {
+    margin-top: -142px;
+    padding-top: 142px;
+  }
 }

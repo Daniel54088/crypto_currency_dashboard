@@ -6,9 +6,11 @@
   padding: 30px 30px 30px 150px;
   overflow: hidden;
   position: relative;
+  margin-right: 20px;
 
   @media screen and (max-width: 450px) {
     padding-left: 100px;
+    margin-right: 10px;
   }
 
   & .pic {
@@ -41,7 +43,7 @@
 
     &:before {
       content: "\f1b2";
-      font:{
+      font: {
         family: 'Material-Design-Iconic-Font';
         size: 24px;
       }
@@ -62,6 +64,7 @@
 // Testimonials Simple
 .classic-testimonial {
   text-align: center;
+  padding: 0 10px;
 
   & .pic {
     margin: 0 auto;

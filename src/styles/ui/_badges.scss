@@ -15,6 +15,12 @@
   }
 }
 
+a.badge {
+  @include hover-focus {
+    text-decoration: none;
+  }
+}
+
 .badge-pill {
   @include border-radius(20px);
 }

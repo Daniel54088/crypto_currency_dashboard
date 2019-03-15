@@ -9,7 +9,9 @@
 .rtl .color-option,
 .rtl .module-nav,
 .rtl .contact-info,
-.rtl .social-link {
+.rtl .social-link,
+.rtl .jr-list,
+.rtl .jr-fnd-gallery-list {
   padding-right: 0;
 }
 
@@ -86,12 +88,19 @@
   }
 }
 
-.rtl ul.nav-menu li.menu > a {
-  border-left: 0 none;
-  border-right: 2px solid transparent;
+.rtl ul.nav-menu li button {
+  text-align: right;
 }
 
-.rtl ul.nav-menu li.menu > a:before {
+.rtl ul.nav-menu li.menu > a,
+.rtl ul.nav-menu li.menu > button {
+  border-left: 0 none;
+  border-right: 2px solid transparent;
+  padding: 7px 20px 8px 35px;
+}
+
+.rtl ul.nav-menu li.menu > a:before,
+.rtl ul.nav-menu li.menu > button:before {
   float: left;
   @include rotate(180deg);
   margin-left: 0;
@@ -104,31 +113,53 @@
 }
 
 .rtl ul.nav-menu li i {
-  margin-left: 16px;
+  margin-left: 12px;
   margin-right: 0;
 }
 
-.rtl ul.nav-menu li ul > li > a {
+.rtl ul.nav-menu li ul > li > a,
+.rtl ul.nav-menu li ul > li > button {
   padding-left: 20px;
-  padding-right: 56px;
+  padding-right: 52px;
 }
 
-.rtl ul.nav-menu li ul > li > ul > li > a {
+.rtl ul.nav-menu li ul > li > ul > li > a,
+.rtl ul.nav-menu li ul > li > ul > li > button {
   padding-left: 20px;
-  padding-right: 76px;
+  padding-right: 72px;
 }
 
-.rtl ul.nav-menu li ul > li > ul > li > ul > li > a {
+.rtl ul.nav-menu li ul > li > ul > li > ul > li > a,
+.rtl ul.nav-menu li ul > li > ul > li > ul > li > button {
   padding-left: 20px;
-  padding-right: 96px;
+  padding-right: 92px;
 }
 
-.rtl ul.nav-menu li ul > li > ul > li > ul > li > ul > li > a {
+.rtl ul.nav-menu li ul > li > ul > li > ul > li > ul > li > a,
+.rtl ul.nav-menu li ul > li > ul > li > ul > li > ul > li > button {
   padding-left: 20px;
-  padding-right: 116px;
+  padding-right: 112px;
+}
+
+.rtl ul.nav-menu li.menu .sub-menu li > a {
+  @include border-left-radius($border-radius-xxl);
+  @include border-right-radius(0);
+  margin-right: 0;
+  margin-left: 20px;
+}
+
+.rtl ul.nav-menu li.menu.open .sub-menu li > a:after {
+  right: auto;
+  left: 15px;
 }
 
 .rtl .app-container.mini-drawer {
+  & .side-nav:not(:hover) {
+    & ul.nav-menu li i {
+      margin-left: 0;
+    }
+  }
+
   & .side-nav:hover {
     & ul.nav-menu {
       & li {
@@ -136,6 +167,10 @@
         & i {
           margin-left: 16px;
           margin-right: 0;
+        }
+
+        & button {
+          text-align: right;
         }
       }
 
@@ -189,14 +224,16 @@
         right: 100%;
       }
 
-      & a i {
+      & a i,
+      & .nav-link i {
         margin-right: 0;
         margin-left: 10px;
       }
     }
   }
 
-  & .nav-arrow > a:before {
+  & .nav-arrow > a:before,
+  & .nav-arrow > .nav-link:before {
     float: left;
     margin-left: 0;
     margin-right: 10px;
@@ -280,6 +317,10 @@
   & .dropdown-menu {
     & .jr-card-header {
       padding: 10px 20px 10px 10px;
+
+      & .icon-btn:last-child {
+        margin-left: 0;
+      }
     }
 
     &:after {
@@ -320,27 +361,30 @@
   }
 }
 
+.rtl .header-notifications .app-notification .dropdown-menu {
+  right: 0 !important;
+  left: auto !important;
+
+  &:before,
+  &:after {
+    right: 8px;
+    left: auto;
+  }
+}
+
 /*Dashboard Styles*/
 .rtl .net-chart {
-  padding-left: 8px;
-  padding-right: 0;
+  padding-right: 80px;
+  padding-left: 15px;
 
   & .jr-card-thumb {
-    margin: 0 0 0 20px;
+    left: auto;
+    right: 15px;
   }
 
   &:hover .jr-card-thumb {
-    margin-right: 0;
-    margin-left: 5px;
-  }
-
-  & .jr-card-thumb img {
-    margin-left: 0;
-    margin-right: 15px;
-  }
-
-  &:hover .jr-card-thumb img {
-    margin: -18px 0 -18px 15px;
+    left: auto;
+    right: 0;
   }
 }
 
@@ -353,11 +397,6 @@
   }
 }
 
-.rtl .jr-card-header-top {
-  margin-right: 0;
-  margin-left: -16px;
-}
-
 .rtl .social-list-line:not(:last-child):before {
   border-left: 0 none;
   border-right: solid 1px $gray-500;
@@ -367,19 +406,19 @@
 
 .rtl .list-line-item {
   padding-left: 0;
-  padding-right: 40px;
+  padding-right: 30px;
 
   &:not(:last-child):before {
     border-left: 0 none;
     border-right: solid 1px $gray-500;
     left: 0;
-    right: 20px;
+    right: 15px;
   }
 }
 
 .rtl .list-line-badge {
   left: 0;
-  right: 16px;
+  right: 11px;
 }
 
 .rtl .box .box-top .size-h5,
@@ -551,13 +590,6 @@
 }
 
 /*Mails Module Styles*/
-.rtl .mail-user-info {
-  & .avatar {
-    margin-right: 0;
-    margin-left: 10px;
-  }
-}
-
 .rtl .sender-name {
   margin-right: 0;
   margin-left: 8px;
@@ -673,6 +705,11 @@
   &.ml-3 {
     margin-left: 8px !important;
   }
+
+  &-lg {
+    margin-right: 0;
+    margin-left: 10px;
+  }
 }
 
 /*Badges Styles*/
@@ -762,6 +799,13 @@
 .rtl .jr-card-header .badge:last-child {
   margin-left: 0;
   margin-right: 10px;
+}
+
+.rtl .jr-card-header {
+  & .icon-btn:last-child {
+    margin-right: 0;
+    margin-left: -12px;
+  }
 }
 
 /*Icons Styles*/
@@ -1199,4 +1243,374 @@
 
 .rtl .owl-carousel {
   direction: ltr;
+}
+
+//Deal Close widget
+.rtl .jr-dealclose-header-right {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+//News thumb widget
+.rtl .jr-news-thumb {
+  margin-right: 0;
+  margin-left: ($size-20 + 5);
+
+  @media (max-width: 1366px) {
+    margin-right: 0;
+    margin-left: 15px;
+  }
+
+  @media (max-width: 575px) {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+.rtl .jr-tabs-up {
+  @media screen and (min-width: 576px) {
+    margin-left: 30px;
+    margin-right: 100px;
+  }
+}
+
+//current plan widget
+.rtl .jr-currentplan {
+  &-right {
+    border-left: 0 none !important;
+    border-right: solid $border-width $border-color !important;
+
+    @media screen and (max-width: 1366px) {
+      border-top: solid $border-width $border-color;
+      border-right: 0 none !important;
+    }
+
+    @media screen and (max-width: 991px) {
+      border-top: 0 none;
+      border-right: solid $border-width $border-color !important;
+    }
+
+    @media screen and (max-width: 575px) {
+      border-top: solid $border-width $border-color;
+      border-right: 0 none !important;
+    }
+
+    &-content {
+      text-align: left;
+
+      @media screen and (max-width: 1366px) {
+        text-align: right;
+      }
+
+      @media screen and (max-width: 991px) {
+        text-align: left;
+      }
+
+      @media screen and (max-width: 575px) {
+        text-align: right;
+      }
+    }
+  }
+}
+
+//featured widget
+.rtl .jr-featured {
+  &-thumb {
+    position: relative;
+    margin-right: 0;
+    margin-left: $size-20 + 5px;
+
+    @media (max-width: 575px) {
+      margin-left: 0;
+    }
+
+    & .jr-tag {
+      position: absolute;
+      left: auto;
+      right: 15px;
+    }
+  }
+
+  &-content {
+    margin-right: 0;
+    margin-left: 6px;
+
+    @media (max-width: 767px) {
+      margin-left: 0;
+    }
+
+    &-right {
+      text-align: left;
+      margin-left: 0;
+      margin-right: auto;
+
+      @media (max-width: 991px) {
+        margin-right: 0;
+        text-align: right;
+      }
+    }
+  }
+}
+
+// Fill chart
+.rtl .jr-fillchart {
+  & .jr-chart-up,
+  & .jr-chart-down {
+    margin-right: 0;
+    margin-left: 6px;
+  }
+
+  &-btn {
+    right: auto;
+    left: 10px;
+
+    &-close {
+      right: auto;
+      left: 10px;
+    }
+  }
+
+  &-nocontent {
+    .card-title {
+      left: auto;
+      right: 20px;
+    }
+  }
+}
+
+// Line indicator style
+.rtl .jr-line-indicator {
+  padding-right: 0;
+
+  &-col {
+    padding-right: 0;
+    padding-left: 10px;
+
+    @media screen and (max-width: 767px) {
+      padding-left: 0;
+    }
+  }
+}
+
+// Task list widget
+.rtl .jr-task-item-content {
+  &-left {
+    @media screen and (max-width: 575px) {
+      padding-right: 0;
+      padding-left: $size-50;
+    }
+  }
+
+  &-right {
+    padding-left: 0;
+    padding-right: 10px;
+
+    @media screen and (max-width: 575px) {
+      padding-right: 0;
+      margin-left: 0;
+      margin-right: -70px;
+
+      .jr-card-ticketlist & {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    & .jr-task-date {
+      right: auto;
+      left: 0;
+    }
+
+    .jr-card-ticketlist & {
+      padding-left: 0;
+    }
+  }
+}
+
+.rtl .jr-entry-title:before {
+  left: auto;
+  right: 0;
+}
+
+//dot list
+.rtl .jr-dot-list {
+  padding-right: 0;
+}
+
+//Overview Description
+.rtl .jr-overview-description {
+  margin-right: 0;
+  margin-left: -$jr-card-margin;
+  border-left: 0 none;
+  border-right: solid $border-width $border-color;
+
+  @media screen and (max-width: 767px) {
+    border-right: 0 none;
+  }
+}
+
+//Revenue section
+.rtl .jr-revenu-col:not(:last-child) {
+  border-right: 0 none;
+  border-left: solid $border-width $border-color;
+}
+
+//full table
+.rtl .full-table {
+  & td:first-child {
+    padding-left: initial;
+    padding-right: $jr-card-margin;
+  }
+
+  & td:last-child {
+    padding-left: 24px;
+    padding-right: initial;
+  }
+}
+
+.rtl .full-table-last-sm {
+  & td:last-child {
+    padding-right: initial;
+    padding-left: ($jr-card-padding - 14);
+  }
+}
+
+//Team list
+.rtl .team-list {
+  padding-right: 0;
+
+  & li:not(:first-child) {
+    margin-left: 0;
+    margin-right: -6px;
+  }
+
+  & .user-avatar {
+    margin-left: 0;
+  }
+}
+
+//user card
+.rtl .user-detail-card {
+  & .user-img-container {
+    @include justify-content(flex-end);
+    left: auto;
+    right: -52px;
+  }
+
+  & .jr-card-body {
+    padding: 20px 110px 20px 10px;
+  }
+}
+
+//widget badge
+.rtl .jr-widget-badge {
+  right: auto;
+  left: 0;
+  @include border-radius($border-radius 0 $border-radius 0);
+}
+
+//Silk Slider
+.rtl .jr-slick-slider {
+
+  &-dot-top {
+    padding-right: 0;
+    padding-left: 18px;
+  }
+
+  & .slick-dots {
+    text-align: right;
+  }
+}
+
+//Hover Arrow widget
+.rtl .jr-dot-arrow {
+  right: auto;
+  left: 0;
+  padding-right: 0;
+  padding-left: 15px;
+}
+
+.rtl .jr-hover-arrow {
+  @include border-radius(0 $border-radius-circle $border-radius-circle 0);
+  left: auto;
+  right: 10px;
+}
+
+.rtl .jr-dot-arrow-hover:hover {
+  & .jr-hover-arrow {
+    left: auto;
+    right: -25px;
+  }
+}
+
+//Profile Page
+.rtl .jr-profile-banner-avatar {
+  margin-right: 0;
+  margin-left: 1.5rem;
+
+  @media (max-width: 575px) {
+    margin-left: 0;
+  }
+}
+
+.rtl .jr-profile-banner-top-right {
+  margin-left: 0;
+  margin-right: auto;
+
+  @media (max-width: 575px) {
+    margin-right: 0;
+  }
+}
+
+.rtl .jr-follower-list {
+  padding-right: 0;
+
+  & li:not(:first-child) {
+    border-left: 0 none;
+    border-right: solid $border-width $border-color;
+  }
+}
+
+.rtl .jr-profile-banner .jr-follower-list {
+
+  & li:not(:first-child) {
+    border-right-color: $white;
+  }
+}
+
+.rtl .jr-profile-setting {
+  margin-left: 0;
+  margin-right: auto;
+
+  @media (max-width: 575px) {
+    margin-right: 0;
+  }
+}
+
+.rtl .jr-card-tabs-right {
+
+  & .jr-tabs-up {
+    margin-left: 30px;
+    margin-right: auto;
+
+    @media screen and (max-width: 575px) {
+      margin-right: 0;
+    }
+  }
+}
+
+.rtl .jr-fnd-list,
+.rtl .jr-gallery-list {
+  padding-right: 0;
+}
+
+//Wall Page
+.rtl .list-inline-3 {
+  padding-right: 3px;
+}
+
+.rtl .jr-user-fnd-content .jr-badge {
+  right: auto;
+  left: 10px;
 }

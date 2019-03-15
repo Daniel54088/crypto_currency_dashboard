@@ -34,8 +34,10 @@ import Login from './component/Login'
 
                 <main className="app-main-content-wrapper">
                     <div className="app-main-content">
-                        <Route exact path="/" component={Home} />
-                        <Route exact path="/login" component={Login} />
+                        <div className="app-wrapper">
+                            <Route exact path="/" component={Home} />
+                            <Route exact path="/login" component={Login} />
+                        </div>
 			        </div>   
                 </main>
 

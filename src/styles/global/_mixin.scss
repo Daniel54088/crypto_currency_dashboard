@@ -1,3 +1,5 @@
+@import "../bootstrap/mixins/gradients";
+
 // Box Shadow
 @mixin box-shadow($shadow...) {
   -webkit-box-shadow: $shadow;
@@ -32,6 +34,7 @@
     clear: both;
   }
 }
+
 // Transitions
 @mixin transition($transition...) {
   -webkit-transition: $transition;
@@ -45,6 +48,25 @@
   -o-transform: rotate($degrees);
   transform: rotate($degrees);
 }
+
+@mixin translate($translate) {
+  -webkit-transform: translate($translate);
+  -ms-transform: translate($translate);
+  transform: translate($translate);
+}
+
+@mixin translateX($translate) {
+  -webkit-transform: translateX($translate);
+  -ms-transform: translateX($translate);
+  transform: translateX($translate);
+}
+
+@mixin translateY($translate) {
+  -webkit-transform: translateY($translate);
+  -ms-transform: translateY($translate);
+  transform: translateY($translate);
+}
+
 //Background Image
 @mixin background($imgpath,$position:0 0,$repeat: no-repeat,$size: cover) {
   background: {
@@ -84,6 +106,12 @@
 @mixin align-items($align-items) {
   -webkit-align-items: $align-items;
   align-items: $align-items;
+}
+
+//Size
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
 }
 
 //Border Radius
@@ -143,7 +171,6 @@
   //  }
 }
 
-
 @mixin hover-focus {
   @if $enable-hover-media-query {
     &:focus {
@@ -194,4 +221,15 @@
       @content;
     }
   }
+}
+
+// Gradient Mixin
+@mixin gradient-directional($start-color: #555, $end-color: #333, $deg: 45deg) {
+  background-image: linear-gradient($deg, $start-color, $end-color);
+  background-repeat: repeat-x;
+}
+
+@mixin gradient-x($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: linear-gradient(to right, $start-color $start-percent, $end-color $end-percent);
+  background-repeat: repeat-x;
 }

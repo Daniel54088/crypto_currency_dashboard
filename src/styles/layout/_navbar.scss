@@ -19,12 +19,14 @@
         top: 100%;
       }
 
+      & > .nav-link,
       & > a {
         color: $secondary;
       }
     }
 
-    & a {
+    & a,
+    & .nav-link {
       display: block;
       color: $sidebar-text-color;
       padding: 10px 0;
@@ -32,7 +34,9 @@
     }
 
     & a:hover,
-    & a:focus {
+    & a:focus,
+    & .nav-link:hover,
+    & .nav-link:focus {
       text-decoration: none;
       color: $app-primary;
     }
@@ -78,16 +82,22 @@
   & li.nav-item {
     padding: 0 10px;
 
+    & > .nav-link,
     & > a {
       padding: 24px 0 25px;
       color: $white;
     }
 
+    &.active > .nav-link,
     &.active > a {
       color: $secondary;
     }
   }
 
+  & li.nav-item:hover > .nav-link,
+  & li.nav-item:focus > .nav-link,
+  & li.nav-item > .nav-link:hover,
+  & li.nav-item > .nav-link:focus,
   & li.nav-item:hover > a,
   & li.nav-item:focus > a,
   & li.nav-item > a:hover,
@@ -110,7 +120,8 @@
     @include transition(all 0.5s ease-in-out);
 
     & li {
-      & a {
+      & a,
+      & .nav-link {
         padding: 5px 15px;
         width: 200px;
         font-size: 14px;
@@ -131,18 +142,21 @@
         top: 0;
       }
 
-      & a i {
+      & a i,
+      & .nav-link i {
         margin-right: 10px;
       }
 
-      &.active > a {
+      &.active > a,
+      &.active > .nav-link {
         color: $app-primary;
       }
     }
   }
 
   & .nav-arrow {
-    & > a {
+    & > a,
+    & > .nav-link {
       position: relative;
 
       &:before {
@@ -162,7 +176,9 @@
     }
 
     & a:hover,
-    & a:focus {
+    & a:focus,
+    & .nav-link:hover,
+    & .nav-link:focus {
       &:before {
         color: $app-primary;
       }
@@ -171,7 +187,8 @@
     &:hover,
     &:focus,
     &.active {
-      & > a:before {
+      & > a:before,
+      & > .nav-link:before {
         color: $app-primary;
       }
     }
@@ -211,7 +228,8 @@
       padding: 0 30px;
     }
 
-    & li.nav-item > a {
+    & li.nav-item > a,
+    & li.nav-item > .nav-link {
       color: $white;
       padding: 9px 0 10px;
     }
@@ -220,7 +238,12 @@
     & li.nav-item:focus > a,
     & li.nav-item > a:hover,
     & li.nav-item > a:focus,
-    & li.nav-item.active > a {
+    & li.nav-item.active > a,
+    & li.nav-item:hover > .nav-link,
+    & li.nav-item:focus > .nav-link,
+    & li.nav-item > .nav-link:hover,
+    & li.nav-item > .nav-link:focus,
+    & li.nav-item.active > .nav-link {
       color: $secondary;
     }
 

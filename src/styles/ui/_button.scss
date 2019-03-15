@@ -12,7 +12,7 @@ button {
   font-weight: $btn-font-weight !important;
   text-transform: capitalize !important;
   line-height: $btn-line-height !important;
-  @include border-radius($border-radius !important);
+  @include border-radius($border-radius-sm !important);
   cursor: pointer;
 }
 
@@ -118,7 +118,7 @@ button {
 }
 
 .complex-btn-wrapper {
- @include display-flex();
+  @include display-flex();
   min-width: 200px;
   width: 100%;
 }
@@ -247,4 +247,15 @@ button {
 .jr-btn.jr-btn-label.jr-btn-xs i {
   line-height: 24px;
   width: $size-30;
+}
+
+.jr-link,
+.card-link {
+  cursor: pointer;
+  color: $app-primary;
+
+  &:hover,
+  &:focus {
+    color: darken($app-primary, 10%);
+  }
 }

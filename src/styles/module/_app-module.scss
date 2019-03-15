@@ -9,7 +9,11 @@
 .app-module {
   position: relative;
   @include display-flex(flex, row, nowrap);
-  margin: -24px;
+  margin: -20px;
+
+  @media screen and (min-width: 576px) {
+    margin: -30px;
+  }
 }
 
 .module-side {
@@ -72,9 +76,9 @@
     @include display-flex(flex, column, nowrap);
   }
 
-  & li a {
+  & li .jr-link {
     padding: 12px 29px;
-    color: lighten($body-color, 50%);
+    color: lighten($light-gray, 15%);
     @include display-flex();
     @include align-items(center);
     text-decoration: none;
@@ -82,6 +86,7 @@
     &:hover,
     &:focus {
       color: $body-color;
+      outline: none;
     }
 
     &.active {
@@ -184,9 +189,10 @@
 }
 
 .toolbar-separator {
-  border-left: solid 1px $gray-400;
-  height: 100%;
-  width: 1px;
+  display: inline-block;
+  background-color: $gray-600;
+  height: 14px;
+  width: 2px;
   margin: 0 12px;
 }
 
@@ -228,9 +234,10 @@
 }
 
 .module-list-info {
+  padding-left: 10px;
   @include flex(1, 1, 0);
   @include display-flex(flex, column, nowrap);
-  max-width: calc(100% - 169px);
+  max-width: calc(100% - 170px);
 }
 
 .module-todo-content {
