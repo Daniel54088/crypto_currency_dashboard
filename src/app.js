@@ -6,7 +6,7 @@ import './styles/app.scss';
 import './vendors/material-design-iconic-font/css/material-design-iconic-font.css';
 import './styles/app-rtl.scss';
 import './styles/bootstrap.scss'
-//component
+//page contents
 import Home from './pages/Home/Home'
 import Trade from './pages/Trade/Trade'
 import News from './pages/News/News'

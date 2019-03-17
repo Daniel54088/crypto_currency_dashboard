@@ -1,8 +1,15 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path');
 module.exports = {
     module: {
       rules: [
+        {
+          test: /\.html$/,
+          use: {
+            loader: "html-loader" 
+          }
+        },
         {
           test: /\.js$/,
           exclude: /node_modules/,
@@ -36,6 +43,7 @@ module.exports = {
               loader: 'file-loader',
               options: {
                 name: '[name]-[hash].[ext]',
+                publicPath: '/images',
                 outputPath: 'images', //all images will build in this folder
               }
             }
@@ -45,10 +53,11 @@ module.exports = {
     },
 
     plugins: [
-        new HtmlWebPackPlugin({
-          template: "./src/index.html",
-          filename: "./index.html"
-        }),
+      new HtmlWebpackPlugin({
+        filename: "index.html",
+        template: "./src/index.html",
+        inject:false,
+      }),
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css"
