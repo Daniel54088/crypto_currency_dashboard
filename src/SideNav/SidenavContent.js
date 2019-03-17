@@ -1,10 +1,77 @@
 import React, {Component} from 'react';
 import { NavLink } from 'react-router-dom'
 import CustomScrollbars from '../util/CustomScrollbars';
+import Button from '@material-ui/core/Button';
 
 
-class SidenavContent extends Component {
+class SidenavContent extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+  
+        }
+    }
+
+    componentDidMount() {
+
+        const that = this;
+        const pathname = window.location.pathname;// get current path
+    
+        const menuLi = document.getElementsByClassName('menu');
+        for (let i = 0; i < menuLi.length; i++) {
+          menuLi[i].onclick = function (event) {
+            for (let j = 0; j < menuLi.length; j++) {
+              const parentLi = that.closest(this, 'li');
+              if (menuLi[j] !== this && (parentLi === null || !parentLi.classList.contains('open'))) {
+                menuLi[j].classList.remove('open')
+              }
+            }
+            this.classList.toggle('open');
+          }
+        }
+    
+        const activeLi = document.querySelector('a[href="' + pathname + '"]');// select current a element
+        try {
+          const activeNav = this.closest(activeLi, 'ul'); // select closest ul
+          if (activeNav.classList.contains('sub-menu')) {
+            this.closest(activeNav, 'li').classList.add('open');
+          } else {
+            this.closest(activeLi, 'li').classList.add('open');
+          }
+        } catch (error) {
+    
+        }
+      }
+
+      closest(el, selector) {
+        try {
+          let matchesFn;
+          // find vendor prefix
+          ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector', 'oMatchesSelector'].some(function (fn) {
+            if (typeof document.body[fn] == 'function') {
+              matchesFn = fn;
+              return true;
+            }
+            return false;
+          });
+    
+          let parent;
+    
+          // traverse parents
+          while (el) {
+            parent = el.parentElement;
+            if (parent && parent[matchesFn](selector)) {
+              return parent;
+            }
+            el = parent;
+          }
+        } catch (e) {
+    
+        }
+    
+        return null;
+      } 
 
     render() {
         return (
@@ -18,24 +85,52 @@ class SidenavContent extends Component {
                             <span className="nav-text">Home</span>
                         </NavLink>
                     </li>
-                    <li className="menu no-arrow">
-                        <NavLink exact to="/login" >
-                            <i className="zmdi zmdi-shopping-cart zmdi-hc-fw"/>
-                            <span className="nav-text">Currency Trade</span>
+
+                    <li className="menu collapse-box">
+                       <Button>
+                         <i className="zmdi zmdi-shopping-cart zmdi-hc-fw"/>
+                         <span className="nav-text">
+                           Trade Market
+                         </span>
+                       </Button>
+                    <ul className="sub-menu">
+                      <li>
+                        <NavLink className="prepend-icon" to="/trade/btc">
+                          <span className="nav-text">BTC Market</span>
                         </NavLink>
-                    </li>
+                      </li>
+                      <li>
+                        <NavLink className="prepend-icon" to="/trade/eth">
+                          <span className="nav-text">ETH Market</span>
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink className="prepend-icon" to="/trade/ltc">
+                          <span className="nav-text">LTC Market</span>
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink className="prepend-icon" to="/trade/rpl">
+                          <span className="nav-text">RPL Market</span>
+                        </NavLink>
+                      </li>
+                    </ul>
+                  </li>
+
                     <li className="menu no-arrow">
                         <NavLink exact to="/login" >
                             <i className="zmdi zmdi-view-web zmdi-hc-fw"/>
                             <span className="nav-text">News</span>
                         </NavLink>
                     </li>
+
                     <li className="menu no-arrow">
                         <NavLink exact to="/login" >
                             <i className="zmdi zmdi-comment zmdi-hc-fw"/>
                             <span className="nav-text">Contact Us</span>
                         </NavLink>
                     </li>
+
                 </ul>
             </CustomScrollbars>
         );
