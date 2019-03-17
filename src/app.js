@@ -8,6 +8,9 @@ import './styles/app-rtl.scss';
 import './styles/bootstrap.scss'
 //component
 import Home from './pages/Home/Home'
+import Trade from './pages/Trade/Trade'
+import News from './pages/News/News'
+import Contact from './pages/Contact/Contact'
 import Login from './component/Login'
 
 
@@ -37,6 +40,9 @@ import Login from './component/Login'
                         <div className="app-wrapper">
                             <Route exact path="/" component={Home} />
                             <Route exact path="/login" component={Login} />
+                            <Route exact path="/trade/:name" component={Trade} />
+                            <Route exact path="/news" component={News} />
+                            <Route exact path="/contact" component={Contact} />
                         </div>
 			        </div>   
                 </main>

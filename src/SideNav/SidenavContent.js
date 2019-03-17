@@ -118,14 +118,14 @@ class SidenavContent extends React.Component {
                   </li>
 
                     <li className="menu no-arrow">
-                        <NavLink exact to="/login" >
+                        <NavLink exact to="/news" >
                             <i className="zmdi zmdi-view-web zmdi-hc-fw"/>
-                            <span className="nav-text">News</span>
+                            <span className="nav-text">News Feed</span>
                         </NavLink>
                     </li>
 
                     <li className="menu no-arrow">
-                        <NavLink exact to="/login" >
+                        <NavLink exact to="/contact" >
                             <i className="zmdi zmdi-comment zmdi-hc-fw"/>
                             <span className="nav-text">Contact Us</span>
                         </NavLink>
