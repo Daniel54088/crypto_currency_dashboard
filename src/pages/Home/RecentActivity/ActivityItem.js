@@ -21,7 +21,7 @@ const ActivityItem = ({task}) => {
           }
         )}
       </ul> : null}
-
+       <p style={{marginTop:5}}>{task.time}</p>
     </div>
   );
 };
