@@ -43,7 +43,7 @@ module.exports = {
               loader: 'file-loader',
               options: {
                 name: '[name]-[hash].[ext]',
-                publicPath: '/images',
+                publicPath: '/images', //every page load the imgs will start with this path 
                 outputPath: 'images', //all images will build in this folder
               }
             }
@@ -55,8 +55,8 @@ module.exports = {
     plugins: [
       new HtmlWebpackPlugin({
         filename: "index.html",
-        template: "./src/index.html",
-        inject:false,
+        template: "./src/index.html", //origin html 
+        inject:false, // use origin index html from template , will not insert css or js  automatically 
       }),
         new MiniCssExtractPlugin({
             filename: "[name].css",

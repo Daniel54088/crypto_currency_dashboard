@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import { NavLink } from 'react-router-dom'
+//import connect from 'react-redux';
+import { NavLink , withRouter} from 'react-router-dom'
 import CustomScrollbars from '../util/CustomScrollbars';
 import Button from '@material-ui/core/Button';
 
@@ -14,7 +15,6 @@ class SidenavContent extends React.Component {
     }
 
     componentDidMount() {
-
         const that = this;
         const pathname = window.location.pathname;// get current path
     
@@ -30,6 +30,23 @@ class SidenavContent extends React.Component {
             this.classList.toggle('open');
           }
         }
+    
+        const activeLi = document.querySelector('a[href="' + pathname + '"]');// select current a element
+        try {
+          const activeNav = this.closest(activeLi, 'ul'); // select closest ul
+          if (activeNav.classList.contains('sub-menu')) {
+            this.closest(activeNav, 'li').classList.add('open');
+          } else {
+            this.closest(activeLi, 'li').classList.add('open');
+          }
+        } catch (error) {
+    
+        }
+      }
+
+      componentWillReceiveProps(nextProps) {
+        const {history} = nextProps;
+        const pathname = window.location.pathname;// get current path
     
         const activeLi = document.querySelector('a[href="' + pathname + '"]');// select current a element
         try {
@@ -95,7 +112,7 @@ class SidenavContent extends React.Component {
                        </Button>
                     <ul className="sub-menu">
                       <li>
-                        <NavLink className="prepend-icon" to="/trade/btc">
+                        <NavLink className="prepend-icon" to={`/trade/btc`}>
                           <span className="nav-text">BTC Market</span>
                         </NavLink>
                       </li>
@@ -110,8 +127,8 @@ class SidenavContent extends React.Component {
                         </NavLink>
                       </li>
                       <li>
-                        <NavLink className="prepend-icon" to="/trade/rpl">
-                          <span className="nav-text">RPL Market</span>
+                        <NavLink className="prepend-icon" to="/trade/xrp">
+                          <span className="nav-text">XRP Market</span>
                         </NavLink>
                       </li>
                     </ul>
