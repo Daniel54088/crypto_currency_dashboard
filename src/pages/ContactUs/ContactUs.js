@@ -1,11 +1,10 @@
 import React from 'react';
-import ContainerHeader from 'components/ContainerHeader'
-import IntlMessages from 'util/IntlMessages';
 
 const ContactUs = ({match}) => {
+  console.log(match)
   return (
     <div className="animated slideInUpTiny animation-duration-3">
-      <ContainerHeader title={<IntlMessages id="sidebar.extraPages.contactUs"/>} match={match}/>
+
       <div className="row">
         <div className="col-lg-9 col-md-8 col-sm-7 col-12">
           <form action="" className="contact-form jr-card">
@@ -14,7 +13,7 @@ const ContactUs = ({match}) => {
                 <div className="form-group">
                   <label form="firstName">Name</label>
                   <input className="form-control form-control-lg" id="firstName" type="text"
-                         placeholder="First Name"/>
+                         placeholder="Daniel"/>
                 </div>
               </div>
 
@@ -22,7 +21,7 @@ const ContactUs = ({match}) => {
                 <div className="form-group">
                   <label htmlFor="lastName">&nbsp;</label>
                   <input className="form-control form-control-lg" id="lastName" type="text"
-                         placeholder="Last Name"/>
+                         placeholder="Wang"/>
                 </div>
               </div>
             </div>
@@ -32,7 +31,7 @@ const ContactUs = ({match}) => {
                 <div className="form-group">
                   <label htmlFor="email">Email</label>
                   <input className="form-control form-control-lg" id="email" type="email"
-                         placeholder="E-mail"/>
+                         placeholder="s981743@gmail.com"/>
                 </div>
               </div>
 
@@ -82,9 +81,9 @@ const ContactUs = ({match}) => {
                 <div className="contact-body">
                   <h4 className="text-uppercase">ADDRESS</h4>
                   <address className="mb-0">
-                    44 New Design Street
+                    Strathfield
                     <br/>
-                    Melbourne 005
+                    Sydney 2135
                     <br/>
                     Australia 300
                   </address>
@@ -95,11 +94,9 @@ const ContactUs = ({match}) => {
                 <i className="zmdi zmdi-phone zmdi-hc-fw"/>
                 <div className="contact-body">
                   <h4 className="text-uppercase">Phone</h4>
-                  <div><span className="jr-link text-primary disable-link">01 (800) 433
-                    544</span>
+                  <div><span className="jr-link text-primary disable-link">0410 276 820</span>
                   </div>
-                  <div><span className="jr-link text-primary disable-link">01 (800) 123
-                    524</span>
+                  <div><span className="jr-link text-primary disable-link">0410 276 820</span>
                   </div>
                 </div>
               </li>
@@ -108,19 +105,16 @@ const ContactUs = ({match}) => {
                 <i className="zmdi zmdi-email zmdi-hc-fw"/>
                 <div className="contact-body">
                   <h4 className="text-uppercase">E-mail</h4>
-                  <div><span className="text-primary jr-link">info@Example.com</span>
+                  <div><span className="text-primary jr-link">s981743@gmail.com</span>
                   </div>
                   <div className="icons-wrapper">
-                    <span className="icon facebook-icon jr-link">
-                      <i className="zmdi zmdi-facebook"/>
-                    </span>
 
                     <span className="icon twitter-icon jr-link">
-                      <i className="zmdi zmdi-twitter"/>
+                      <i className="zmdi zmdi-github"/>
                     </span>
 
                     <span className="icon google-icon jr-link">
-                      <i className="zmdi zmdi-google-plus"/>
+                      <i className="zmdi zmdi-medium"/>
                     </span>
 
                     <span className="icon linkedin-icon jr-link">

@@ -142,7 +142,7 @@ class SidenavContent extends React.Component {
                     </li>
 
                     <li className="menu no-arrow">
-                        <NavLink exact to="/contact" >
+                        <NavLink exact to="/contactus" >
                             <i className="zmdi zmdi-comment zmdi-hc-fw"/>
                             <span className="nav-text">Contact Us</span>
                         </NavLink>

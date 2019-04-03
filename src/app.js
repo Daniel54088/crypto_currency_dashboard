@@ -10,7 +10,7 @@ import './styles/bootstrap.scss'
 import Home from './pages/Home/Home'
 import Trade from './pages/Trade/Trade'
 import News from './pages/News/News'
-import Contact from './pages/Contact/Contact'
+import ContactUs from './pages/ContactUs/ContactUs'
 import Login from './component/Login'
 
 
@@ -41,7 +41,7 @@ import Login from './component/Login'
                                  <Route exact path="/login" component={Login} />
                                  <Route exact path="/trade/:name" component={Trade} />
                                  <Route exact path="/news" component={News} />
-                                 <Route exact path="/contact" component={Contact} />
+                                 <Route exact path="/contactus" component={ContactUs} />
                              </div>
 			             </div>   
                      </main>       
