@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
 import AppBar from '@material-ui/core/AppBar';
-import Avatar from '@material-ui/core/Avatar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import {Dropdown, DropdownMenu, DropdownToggle} from 'reactstrap';
@@ -87,11 +86,6 @@ class Header extends React.Component {
                             <span className="menu-icon"/>
                           </span>
                       </div>
-                      
-                      <IconButton className='jr-menu-icon mr-3' aria-label="Menu"
-                                  onClick={this.onToggleCollapsedNav}>
-                          <span className="menu-icon"/>
-                      </IconButton>
                   
 
                   <NavLink className="app-logo mr-2 d-none d-sm-block" to="/">
@@ -103,52 +97,6 @@ class Header extends React.Component {
                 value={this.state.searchText}/>
 
                   <ul className="header-notifications list-inline ml-auto">
-                      <li className="d-inline-block d-lg-none list-inline-item">
-                          <Dropdown
-                              className="quick-menu nav-searchbox"
-                              isOpen={this.state.searchBox}
-                              toggle={this.onSearchBoxSelect.bind(this)}>
-
-                              <DropdownToggle
-                                  className="d-inline-block"
-                                  tag="span"
-                                  data-toggle="dropdown">
-                                  <IconButton className="icon-btn size-30">
-                                      <i className="zmdi zmdi-search zmdi-hc-fw"/>
-                                  </IconButton>
-                              </DropdownToggle>
-
-                              <DropdownMenu right className="p-0">
-                              <SearchBox styleName="d-none d-lg-block" placeholder=""
-                                  onChange={this.updateSearchText.bind(this)}
-                              value={this.state.searchText}/>
-                               <AppNotification/>
-                              </DropdownMenu>
-                          </Dropdown>
-                      </li>
-                      <li className="list-inline-item">
-                            <Dropdown
-                                className="quick-menu"
-                                isOpen={this.state.langSwitcher}
-                                toggle={this.onLangSwitcherSelect.bind(this)}>
-
-                                <DropdownToggle
-                                    className="d-inline-block"
-                                    tag="span"
-                                    data-toggle="dropdown">
-                                    <div className="d-flex align-items-center pointer pt-1">
-                                        <i className={`flag flag-24 flag-us`}/>
-                                    </div>
-                                </DropdownToggle>
-
-                                <DropdownMenu right className="w-50">
-                                   <LanguageSwitcher switchLanguage={this.props.switchLanguage}
-                                                      handleRequestClose={this.handleRequestClose}/> 
-                                </DropdownMenu>
-                            </Dropdown>
-
-
-                        </li>
 
                       <li className="list-inline-item app-tour">
                           <Dropdown
@@ -189,7 +137,6 @@ class Header extends React.Component {
 
 
                                 <DropdownMenu right>
-                                    <Tesr styleName="align-items-center"/>
                                     <MailNotification/>
                                 </DropdownMenu>
                             </Dropdown>

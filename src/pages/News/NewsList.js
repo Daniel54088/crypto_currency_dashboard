@@ -15,7 +15,7 @@ import {latestPostArray} from './data'
     render() {
 
         return (
-                <div className="col-12" >
+                <div >
                         
                         <div className="mr-auto mb-4">
                           <h2 className="card-heading" style={{fontWeight:700}}>LatestPosts</h2>
