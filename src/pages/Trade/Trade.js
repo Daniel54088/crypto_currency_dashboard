@@ -8,28 +8,27 @@ import {ajaxCall} from '../../util/ajaxHelper'
 import {URL} from '../../config.js'
 import HistoryOrder from "./HistoryOrder";
 
+
  class Trade extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             marketType : location.pathname,
-            data: {url: '', name: '', fullName:''}
+            data: {url: '', name: '', fullName:''},
         }
 
     }
     
     componentDidMount(){    
-        this.getData(location.pathname)
+        this.getData(location.pathname);
     }
 
     componentWillReceiveProps(nextProps){
         this.getData(nextProps.match.url)
     }
 
-
-    
     getData(url){
-        let data = '';
+   
         switch (url) {
             case '/trade/btc':
                 ajaxCall( URL.API_Domain + URL.API_BTC_CONTENT,function(result){
@@ -60,6 +59,7 @@ import HistoryOrder from "./HistoryOrder";
 
     }
 
+
     render() {
 
         return (
@@ -69,7 +69,7 @@ import HistoryOrder from "./HistoryOrder";
                 <div className="jr-profile-content">
                   <div className="row">
                     <div className="col-xl-7 col-lg-7 col-md-7 col-12">
-                        <PriceDetail/>
+                        <PriceDetail url={this.props.match.url}/>
                       
                         <TradeArea/>
                      

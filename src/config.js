@@ -7,4 +7,12 @@ export const URL = {
     API_ETH_CONTENT: "/eth.json",
     API_LTC_CONTENT: "/ltc.json",
     API_XRP_CONTENT: "/xrp.json",
-} 
+}
+
+export const SOCKET_URL = {
+    SOCKET_END_POINT:'wss://stream.binance.com:9443/ws',
+    SOCKET_BTC_CONTENT: '/btcusdt@ticker',
+    SOCKET_ETH_CONTENT: '/ethusdt@ticker',
+    SOCKET_LTC_CONTENT: '/ltcusdt@ticker',
+    SOCKET_XRP_CONTENT: '/xrpusdt@ticker'
+}

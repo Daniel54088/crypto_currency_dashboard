@@ -22,7 +22,7 @@ class OrderItem extends React.Component {
     const {anchorEl, menuState} = this.state;
     const data = this.props.data;
     const statusStyle = data.status.includes("Completed") ? "text-white bg-success" : data.status.includes("On Hold") ? "bg-amber" : data.status.includes("Delayed") ? "text-white bg-danger" : "text-white bg-grey";
-    console.log(data)
+
     return (
       <tr
         tabIndex={-1}

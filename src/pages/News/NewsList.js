@@ -13,7 +13,7 @@ import {latestPostArray} from './data'
     }
 
     render() {
-
+  
         return (
                 <div >
                         

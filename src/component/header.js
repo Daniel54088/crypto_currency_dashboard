@@ -6,7 +6,6 @@ import IconButton from '@material-ui/core/IconButton';
 import {Dropdown, DropdownMenu, DropdownToggle} from 'reactstrap';
 import AppNotification from './AppNotification/AppNotification';
 import MailNotification from './MailNotification/MailNotification';
-import LanguageSwitcher from './LanguageSwitcher/LanguageSwitcher';
 //import CardHeader from './CardHeader/CardHeader';
 import Tesr from './tesr/tesr'
 import SearchBox from './SearchBox/SearchBox.js'
