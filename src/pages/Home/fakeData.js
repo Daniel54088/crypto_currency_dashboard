@@ -1,13 +1,13 @@
 import React from "react";
 
 const increamentData = [
-    {name: 'Page A', pv: 200},
-    {name: 'Page B', pv: 1200},
-    {name: 'Page C', pv: 600},
-    {name: 'Page D', pv: 1600},
-    {name: 'Page D', pv: 1000},
-    {name: 'Page H', pv: 2260},
-    {name: 'Page K', pv: 800},
+    {name: 'Page A', pv: 20},
+    {name: 'Page B', pv: 120},
+    {name: 'Page C', pv: 60},
+    {name: 'Page D', pv: 160},
+    {name: 'Page D', pv: 100},
+    {name: 'Page H', pv: 226},
+    {name: 'Page K', pv: 80},
   ];
 
 
@@ -17,24 +17,28 @@ const increamentData = [
         prize: '$9585',
         currencyName: 'Bitcoin Price',
         increamentData: increamentData,
+        url: '/trade/btc'
     },
     {
         title: '08',
         prize: '$356',
         currencyName: 'Etherium Price',
         increamentData: increamentData,
+        url: '/trade/eth'
     },
     {
         title: '18',
         prize: '$72',
-        currencyName: 'Ripple Price',
+        currencyName: 'Litecoin Price',
         increamentData: increamentData,
+        url: '/trade/ltc'
     },
     {
         title: '11',
         prize: '$988',
-        currencyName: 'Litecoin Price',
+        currencyName: 'Ripple Price',
         increamentData: increamentData,
+        url: '/trade/xrp'
     }
   ];
 

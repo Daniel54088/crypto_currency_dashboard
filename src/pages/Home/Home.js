@@ -1,5 +1,4 @@
 import React from "react";
-
 import CurrencyCard from './CurrencyCard/CurrencyCard'
 import Portfolio from "./Portfolio/Portfolio"
 import RecentActivity from './RecentActivity/RecentActivity'
@@ -10,6 +9,7 @@ import Widget from './Widget'
 import {currencyData,recentActivity} from './fakeData'
 
 
+
 class Home extends React.Component {
   constructor(props) {
       super(props);
@@ -17,6 +17,8 @@ class Home extends React.Component {
 
       }
   }
+
+
 
 
   render() {
@@ -31,9 +33,10 @@ class Home extends React.Component {
                   prize={item.prize} 
                   title={item.title} 
                   currencyName={item.currencyName}
+                  url={item.url}
                 />
               ) 
-            })
+            }.bind(this))
           }
 
           <div className="col-xl-8 col-lg-8 col-md-12 col-12">

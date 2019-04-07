@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ContactUs = ({match}) => {
-  console.log(match)
+
   return (
     <div className="animated slideInUpTiny animation-duration-3">
 

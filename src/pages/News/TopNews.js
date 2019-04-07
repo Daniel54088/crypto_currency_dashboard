@@ -1,7 +1,7 @@
 import React from "react";
 
 const TopNews = ({recentData}) => {
-    console.log(recentData)
+  
     const {image, title, description, date} = recentData;
 
     return (

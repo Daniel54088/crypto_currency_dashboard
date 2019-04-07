@@ -4,7 +4,7 @@ import {Area, AreaChart, Line, LineChart, ResponsiveContainer} from "recharts";
 import ChartCard from "./ChartCard";
 
 
-const CurrencyCard = ({data, prize, title, currencyName}) => {
+const CurrencyCard = ({data, prize, title, currencyName,url}) => {
     return (
           <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
             <ChartCard prize={prize} title={title} icon="bitcoin"
@@ -22,7 +22,7 @@ const CurrencyCard = ({data, prize, title, currencyName}) => {
                                fillOpacity={1}/>
                        </AreaChart>
                        </ResponsiveContainer>}
-                       styleName="up" currencyName={currencyName}/>
+                       styleName="up" currencyName={currencyName} url={url}/>
           </div>
     );
   };
