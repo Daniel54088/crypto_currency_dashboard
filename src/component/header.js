@@ -7,7 +7,6 @@ import {Dropdown, DropdownMenu, DropdownToggle} from 'reactstrap';
 import AppNotification from './AppNotification/AppNotification';
 import MailNotification from './MailNotification/MailNotification';
 //import CardHeader from './CardHeader/CardHeader';
-import Tesr from './tesr/tesr'
 import SearchBox from './SearchBox/SearchBox.js'
 //import IntlMessages from '../util/IntlMessages';
 //import Menu from 'components/TopNav/Menu';

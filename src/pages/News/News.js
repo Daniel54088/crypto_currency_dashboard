@@ -13,8 +13,10 @@ import Advertisement from './Advertisement'
 
     }
 
-    render() {
 
+
+    render() {
+       
         return (
             <div className="row">
                 <div className="col-xl-8 col-lg-8 col-md-8 col-12">
@@ -28,4 +30,7 @@ import Advertisement from './Advertisement'
         )
     }
 };
+    
+
+
 export default News;
