@@ -2,7 +2,9 @@ import React from 'react';
 import Avatar from '@material-ui/core/Avatar'
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-
+import { connect } from 'react-redux'
+import {withRouter} from 'react-router-dom'
+import{userLogOutSuccess} from '../action/Auth'
 
 class UserInfo extends React.Component {
     constructor(props) {
@@ -13,6 +15,7 @@ class UserInfo extends React.Component {
         }
         this.handleClick = this.handleClick.bind(this);
         this.handleRequestClose = this.handleRequestClose.bind(this)
+        this.handleLogOut = this.handleLogOut.bind(this)
     }
 
 
@@ -24,7 +27,14 @@ class UserInfo extends React.Component {
         this.setState({open: false});
     };
 
+    handleLogOut(){
+        this.props.logoutDispatch();//logout success and dispatch to change redux info
+        this.props.history.push("/login");  //redirect to home page
+        this.setState({open: false});  
+    }
+
     render() {
+        console.log(this.props.auth)
         return (
             <div className="user-profile d-flex flex-row align-items-center">
                 <Avatar
@@ -58,7 +68,7 @@ class UserInfo extends React.Component {
                         <i className="zmdi zmdi-settings zmdi-hc-fw mr-2"/>
                         <span>setting</span>
                     </MenuItem>
-                    <MenuItem onClick={this.handleRequestClose}>
+                    <MenuItem onClick={this.handleLogOut}>
                         <i className="zmdi zmdi-sign-in zmdi-hc-fw mr-2"/>
                         <span>logout</span>
                     </MenuItem>
@@ -68,10 +78,20 @@ class UserInfo extends React.Component {
     }
 }
 
-const mapStateToProps = ({settings}) => {
-    const {locale} = settings;
-    return {locale}
+
+const mapStateToProps = (state) => {
+    return {
+       auth : state.auth //get the login user data from store
+    };
 };
-export default UserInfo;
+
+const mapDispatchToProps = (dispatch) => {
+    return{
+        logoutDispatch: () => {
+            dispatch(userLogOutSuccess())
+          }
+    }
+}
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(UserInfo));
 
 

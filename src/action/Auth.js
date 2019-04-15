@@ -1,15 +1,8 @@
 import {
     SIGNIN_USER,
-    SIGNIN_USER_SUCCESS
+    SIGNIN_USER_SUCCESS,
+    LOGOUT_USER_SUCCESS
 } from '../constants/ActionTypes'
-
-
-export const userSignIn = (user) => {
-    return {
-      type: SIGNIN_USER,
-      user: user
-    };
-  };
 
 export const userSignInSuccess = (authUser) => {
     return {
@@ -19,10 +12,11 @@ export const userSignInSuccess = (authUser) => {
     }
 };
 
-export const userSignInFail = () => {
+
+export const userLogOutSuccess = () => {
     return {
-      type: SIGNIN_USER_SUCCESS,
+      type: LOGOUT_USER_SUCCESS,
       user: null,
       isLogin: false
     }
-}; 
+};

@@ -1,5 +1,6 @@
 import {
-    SIGNIN_USER_SUCCESS
+    SIGNIN_USER_SUCCESS,
+    LOGOUT_USER_SUCCESS
 } from "../constants/ActionTypes";
 
 const INIT_STATE = {
@@ -17,6 +18,13 @@ export default (state = INIT_STATE, action) => {
               isLogin: true
             }
         }
+        case LOGOUT_USER_SUCCESS: {
+            return {
+              ...state,
+              authUser: action.user,
+              isLogin: false
+            }
+        }        
           default:
           return state;
       }
