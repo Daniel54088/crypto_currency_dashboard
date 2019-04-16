@@ -7,13 +7,27 @@ export const ajaxCall = (url, callback) => {
       .then(res => {
 
          callback(res.data);
-         return;
+         
       })
       .catch(err =>{
-         console.log(err)
-
-         return;
+         callback(err);
       })
 
    
+}
+
+
+export const ajaxPost = (url, callback) => {
+   
+   axios.get(url)
+     .then(res => {
+
+        callback(res.data);
+        
+     })
+     .catch(err =>{
+         callback(err);       
+     })
+
+  
 }

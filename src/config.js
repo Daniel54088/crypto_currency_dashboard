@@ -1,6 +1,6 @@
 export const URL = {
     API_Domain: '/async_data',  //dev
-    //apiDomain: 'https://www.stage_environment.com' //stage
+    //apiDomain: 'https://www.stage_environment.com'  //stage
     //apiDomain: 'https://www.production_environment.com' //production
     API_VERSION: "?api-version=1.0",
     API_BTC_CONTENT: "/btc.json",

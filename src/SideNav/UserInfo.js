@@ -28,52 +28,56 @@ class UserInfo extends React.Component {
     };
 
     handleLogOut(){
-        this.props.logoutDispatch();//logout success and dispatch to change redux info
-        this.props.history.push("/login");  //redirect to home page
+        this.props.logoutDispatch();// logout success and dispatch to change redux info
+        this.props.history.push("/login");  // redirect to home page
         this.setState({open: false});  
     }
 
     render() {
         console.log(this.props.auth)
         return (
-            <div className="user-profile d-flex flex-row align-items-center">
-                <Avatar
-                    alt='...'
-                    src={require("../assets/avatar.png")}
-                    className="user-avatar "
+          <div className="user-profile d-flex flex-row align-items-center">
+            <Avatar
+              alt='...'
+              src={require("../assets/avatar.png")}
+              className="user-avatar "
+            />
+            <div className="user-detail">
+              <h4 className="user-name" onClick={this.handleClick}>
+Daniel Wang
+                <i
+                  className="zmdi zmdi-caret-down zmdi-hc-fw align-middle"
                 />
-                <div className="user-detail">
-                    <h4 className="user-name" onClick={this.handleClick}>Daniel Wang <i
-                        className="zmdi zmdi-caret-down zmdi-hc-fw align-middle"/>
-                    </h4>
-                </div>
-                <Menu className="user-info"
-                      id="simple-menu"
-                      anchorEl={this.state.anchorEl}
-                      open={this.state.open}
-                      onClose={this.handleRequestClose}
-                      PaperProps={{
+              </h4>
+            </div>
+            <Menu
+              className="user-info"
+              id="simple-menu"
+              anchorEl={this.state.anchorEl}
+              open={this.state.open}
+              onClose={this.handleRequestClose}
+              PaperProps={{
                           style: {
                               width: 120,
                               paddingTop: 0,
                               paddingBottom: 0
                           }
                       }}
-                >
-                    <MenuItem onClick={this.handleRequestClose}>
-                        <i className="zmdi zmdi-account zmdi-hc-fw mr-2"/>
-                         <span>profile</span>
-                    </MenuItem>
-                    <MenuItem onClick={this.handleRequestClose}>
-                        <i className="zmdi zmdi-settings zmdi-hc-fw mr-2"/>
-                        <span>setting</span>
-                    </MenuItem>
-                    <MenuItem onClick={this.handleLogOut}>
-                        <i className="zmdi zmdi-sign-in zmdi-hc-fw mr-2"/>
-                        <span>logout</span>
-                    </MenuItem>
-                </Menu>
-            </div>
+            >
+              <MenuItem onClick={this.handleRequestClose}>
+                <i className="zmdi zmdi-account zmdi-hc-fw mr-2" />
+                <span>profile</span>
+              </MenuItem>
+              <MenuItem onClick={this.handleRequestClose}>
+                <i className="zmdi zmdi-settings zmdi-hc-fw mr-2" />
+                <span>setting</span>
+              </MenuItem>
+              <MenuItem onClick={this.handleLogOut}>
+                <i className="zmdi zmdi-sign-in zmdi-hc-fw mr-2" />
+                <span>logout</span>
+              </MenuItem>
+            </Menu>
+          </div>
         );
     }
 }
@@ -81,7 +85,7 @@ class UserInfo extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-       auth : state.auth //get the login user data from store
+       auth : state.auth // get the login user data from store
     };
 };
 

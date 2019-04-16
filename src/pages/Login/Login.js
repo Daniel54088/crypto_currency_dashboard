@@ -98,7 +98,7 @@ class Login extends React.Component {
                           ContentProps={{
                             'aria-describedby': 'message-id',
                           }}
-                          message={<span id="message-id">Wrong Account or Password!</span>}
+                          message={<span id="message-id">Wrong Account or Password! Both are: dan</span>}
                         />
 
                     </div>

@@ -1,5 +1,4 @@
 import {
-    SIGNIN_USER,
     SIGNIN_USER_SUCCESS,
     LOGOUT_USER_SUCCESS
 } from '../constants/ActionTypes'
