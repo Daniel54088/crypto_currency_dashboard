@@ -34,7 +34,7 @@ class UserInfo extends React.Component {
     }
 
     render() {
-        console.log(this.props.auth)
+       
         return (
           <div className="user-profile d-flex flex-row align-items-center">
             <Avatar

@@ -6,14 +6,14 @@ import { createStore } from 'redux'
 import App from "./App"
 import ReducerApp from './reducers'
 
-let store = createStore(ReducerApp);
+const store = createStore(ReducerApp);
 
 ReactDOM.render(
-    <BrowserRouter>
-        <Provider store={store}>  
-            <App />
-        </Provider>
-    </BrowserRouter>
+  <BrowserRouter>
+    <Provider store={store}>  
+      <App />
+    </Provider>
+  </BrowserRouter>
     , document.querySelector('#app')
 )
 

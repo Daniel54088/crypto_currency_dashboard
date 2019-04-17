@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
+import {connect} from 'react-redux';
+import{toggleCollapsedNav} from '../action/Setting';
 import { Dropdown, DropdownMenu, DropdownToggle } from "reactstrap";
 import AppNotification from "./AppNotification/AppNotification";
 import MailNotification from "./MailNotification/MailNotification";
@@ -46,11 +48,13 @@ class Header extends React.Component {
     });
   }
 
-  onToggleCollapsedNav() {
-    const { navCollapsed } = this.props;
-    const val = !navCollapsed;
+
+  onToggleCollapsedNav = () => {
+    const { setting } = this.props;
+    const { navCollapsed } = setting;
+    const val = !navCollapsed;   
     this.props.toggleCollapsedNav(val);
-  }
+  };
 
   handleRequestClose() {
     this.setState({
@@ -68,6 +72,7 @@ class Header extends React.Component {
 
   render() {
     const { appNotification, mailNotification, searchText } = this.state;
+
     return (
       <AppBar className="app-main-header app-main-header-top">
         <Toolbar className="app-toolbar" disableGutters={false}>
@@ -147,4 +152,16 @@ class Header extends React.Component {
     );
   }
 }
-export default Header;
+
+
+const mapStateToProps = (state) => {
+
+  return {
+     setting : state.setting
+  };
+};
+
+
+
+
+export default connect(mapStateToProps,{toggleCollapsedNav})(Header);

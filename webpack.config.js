@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require('path');
+
 module.exports = {
     module: {
       rules: [
@@ -14,8 +15,13 @@ module.exports = {
           test: /\.js$/,
           exclude: /node_modules/,
           use: {
-            loader: "babel-loader" 
-          }
+            loader: "babel-loader",
+
+          },
+
+
+          
+          
         },
         {
           test: /\.css$/,
@@ -43,8 +49,8 @@ module.exports = {
               loader: 'file-loader',
               options: {
                 name: '[name]-[hash].[ext]',
-                publicPath: '/images', //every page load the imgs will start with this path 
-                outputPath: 'images', //all images will build in this folder
+                publicPath: '/images', // every page load the imgs will start with this path 
+                outputPath: 'images', // all images will build in this folder
               }
             }
           ]
@@ -55,7 +61,7 @@ module.exports = {
     plugins: [
       new HtmlWebpackPlugin({
         filename: "index.html",
-        template: "./src/index.html", //origin html 
+        template: "./src/index.html", // origin html 
         inject:false, // use origin index html from template , will not insert css or js  automatically 
       }),
         new MiniCssExtractPlugin({
