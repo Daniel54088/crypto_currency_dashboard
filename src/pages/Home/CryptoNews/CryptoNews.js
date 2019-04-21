@@ -92,23 +92,23 @@ class CryptoNews extends React.Component {
           <TabContent className="jr-tabs-content" activeTab={this.state.activeTab}>
             <TabPane tabId="1">
               {allNews.map((data, index) =>
-                <CryptoNewsItem key={index} data={data}/>
+                <CryptoNewsItem key={index} {...data}/>
               )}
             </TabPane>
 
             <TabPane tabId="2">
               {bitCoinNews.map((data, index) =>
-                <CryptoNewsItem key={index} data={data}/>
+                <CryptoNewsItem key={index}  {...data}/>
               )}
             </TabPane>
             <TabPane tabId="3">
               {rippleNews.map((data, index) =>
-                <CryptoNewsItem key={index} data={data}/>
+                <CryptoNewsItem key={index}  {...data}/>
               )}
             </TabPane>
             <TabPane tabId="4">
               {lightCoinNews.map((data, index) =>
-                <CryptoNewsItem key={index} data={data}/>
+                <CryptoNewsItem key={index}  {...data}/>
               )}
             </TabPane>
           </TabContent>

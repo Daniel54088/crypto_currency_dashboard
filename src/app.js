@@ -1,22 +1,15 @@
 import React from "react";
-import {BrowserRouter as Router, Route } from 'react-router-dom'
+import {BrowserRouter as Router} from 'react-router-dom'
 import { connect } from 'react-redux'
 import Header from './component/header';
 import SideNav from './SideNav/SideNav';
-import PrivateRoute from './component/PrivateRoute'
 // import css
 import './styles/app.scss';
 import './vendors/material-design-iconic-font/css/material-design-iconic-font.css';
 import './styles/app-rtl.scss';
 import './styles/bootstrap.scss'
-// page contents
-import Home from './pages/Home/Home'
-import Trade from './pages/Trade/Trade'
-import News from './pages/News/News'
-import ContactUs from './pages/ContactUs/ContactUs'
-import Login from './pages/Login/Login'
-
-
+// import all route
+import  Routes  from './route'
 
  class App extends React.Component {
     constructor(props) {
@@ -25,15 +18,13 @@ import Login from './pages/Login/Login'
 
         }
     }
-
-
+ 
     render() {
-     
+
         return (
             
           <Router>
             <div>
-
               <div className="app-container fixed-drawer">                        
                 <SideNav />
                 <div className="app-main-container">
@@ -44,11 +35,7 @@ import Login from './pages/Login/Login'
                   <main className="app-main-content-wrapper">
                     <div className="app-main-content">
                       <div className="app-wrapper">
-                        <PrivateRoute authed={this.props.auth.isLogin} exact path="/" component={Home} />
-                        <PrivateRoute authed={this.props.auth.isLogin} exact path="/trade/:name" component={Trade} />
-                        <PrivateRoute authed={this.props.auth.isLogin} exact path="/news" component={News} />
-                        <PrivateRoute authed={this.props.auth.isLogin} exact path="/contactus" component={ContactUs} />
-                        <Route exact path="/login" component={Login} />
+                          <Routes />
                       </div>
                     </div>   
                   </main>       

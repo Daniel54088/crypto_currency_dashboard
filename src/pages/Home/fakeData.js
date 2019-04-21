@@ -127,7 +127,7 @@ const increamentData = [
           id: 1,
           image: newsImg1 ,
           title: '10 things you must know before trading in cryptocurrency',
-          subTitle: 'Cras tincidunt sit amet massa at accumsan. Mauris tincidunt tincidunt est, et pulvinar\n' +
+          subTitle: 'cassa at accumsan. Mauris tincidunt tincidunt est, et pulvinar\n' +
           'felis pharetra in vestibulum sed.',
           desc: 'BTC, Crypto, Trading, Tips, Cryptocurrency',
         },
@@ -146,6 +146,9 @@ const increamentData = [
           subTitle: 'Cras tincidunt sit amet massa at accumsan. Mauris tincidunt tincidunt est, et pulvinar\n' +
           'felis pharetra in vestibulum sed.',
           desc: 'BTC, Crypto, Trading, Tips, Cryptocurrency',
+        },
+        {
+          id: 4,
         }
       ];
 
