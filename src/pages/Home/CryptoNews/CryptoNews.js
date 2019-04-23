@@ -6,7 +6,7 @@ import Widget from "../Widget";
 import {allNews, bitCoinNews, lightCoinNews, rippleNews} from "../fakeData"
 import CryptoNewsItem from "./CryptoNewsItem";
 
-const newsData = [allNews, bitCoinNews, lightCoinNews, rippleNews];
+
 
 class CryptoNews extends React.Component {
 
@@ -26,17 +26,6 @@ class CryptoNews extends React.Component {
     }
   }
 
-  handleChange(e){
-    const value = e.target.value;
-    this.setState({
-      news: newsData[value],
-      loader: true
-    });
-
-    setTimeout(() => {
-      this.setState({loader: false});
-    }, 1500);
-  };
 
   render() {
     return (

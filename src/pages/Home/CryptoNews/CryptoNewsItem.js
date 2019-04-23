@@ -36,7 +36,7 @@ function CryptoNewsItem(props) {
           </div>
           <div className="jr-news-tags-right">
             <p className="text-primary ml-auto pointer text-truncate">
-              Read Full Story
+              Read Full Story 
               <i
                 className={`zmdi zmdi-long-arrow-right jr-fs-xxl ml-2 d-inline-block align-middle`}
               />

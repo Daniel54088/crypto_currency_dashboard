@@ -4,7 +4,7 @@ import {
 } from "../constants/ActionTypes";
 
 const INIT_STATE = {
-    navCollapsed: true,
+    navCollapsed: false,
     width: window.innerWidth,
 }
 
