@@ -5,4 +5,15 @@
 
 ----
 
-<h2>Tech Stacks</h2>
+<h2>Features</h2>
+
+  - Member login with Redux
+  - Using React router implement SPA(single page application)
+  - Getting real-time crypyocurrency ptice by WebSocket
+  - Webpack bundle the code
+  - Testing React Components by Jest
+  - Using Eslint to keep the quality of code stably
+  - RWD 
+
+
+<h2>Installation</h2>
