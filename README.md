@@ -1,4 +1,5 @@
 <img src="https://github.com/Daniel54088/crypto_currency_dashboard/blob/master/src/assets/logo_blue.png" />
+<img src="https://travis-ci.org/Daniel54088/crypto_currency_dashboard.svg?branch=master" />
 <h3>This is the ready to go dashboard template of cryptocurrency exchange. If API is connected, it can be the potential production project.</h3>
 
 <img src="https://github.com/Daniel54088/crypto_currency_dashboard/blob/master/src/assets/screen_shot.png" width="250"/><img src="https://github.com/Daniel54088/crypto_currency_dashboard/blob/master/src/assets/screen_shot2.png" width="250"/><img src="https://github.com/Daniel54088/crypto_currency_dashboard/blob/master/src/assets/screen_shot3.png" width="250"/>
@@ -45,4 +46,42 @@
  
  <img src="https://github.com/Daniel54088/crypto_currency_dashboard/blob/master/src/assets/screen_shot2.png" width="450"/>
  
+ 
+ <h2>Test & CI</h2> 
+  
+  The testing is using **Jest** and **Enzyme** to accomplish. The following points are my testing targets:
+  
+  <h3>React router</h3>
+  
+  Purpose : Check the routes redirect to the correct page in different conditions.
+  
+  EX: Valid path without auth should not redirect to 404, go to login page or 
+      Accessing private page will be blocked without auth
+  
+ <h3>React components</h3>
+  
+  Purpose : Check every components are renderd correctly. 
+  
+  There are 5 points that I think should be tested.
+  
+  1. Test props:<br/>
+     Feeding the default & custom values as the props to make sure the components rendered the correct view.<br/><br/>
+  2. Test dataTypes: <br/>
+     Ensure the datatype is correct.<br/> <br/>
+  3. Test events: <br/>
+     Make sure the events like modal or button click are functional. <br/><br/>
+  4. Test conditions: <br/>
+     Input the different values to make the result is what we want. <br/><br/>
+  5. Test states: <br/>
+    Test current states and the states are correct after setState function called.<br/><br/>
+    
+  <img src="https://github.com/Daniel54088/crypto_currency_dashboard/blob/master/src/assets/test.png" width="450"/>  
+    
+  The test code is not finished yet.  
+    
+  <h3>Travis CI</h3>   
+
+  Test and Deploy with Confidence. Run the test code and build the app automatically everytime I push the code.
+  
+  <img src="https://github.com/Daniel54088/crypto_currency_dashboard/blob/master/src/assets/trevis.png" width="450"/>
  
